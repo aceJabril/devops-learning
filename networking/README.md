@@ -1,16 +1,16 @@
-# ⚡ Launching an NGINX Web Server on Amazon EC2 ☁️
+#  Launching an NGINX Web Server on Amazon EC2 ☁️
 
 Today I set up an NGINX web server on an Amazon EC2 instance and connected it to my domain, **jabz.uk**, that I bought through Cloudflare. Here’s exactly what I did.
 
 ---
 
-## 🟢 Step 1: Launch EC2 and SSH In
+##  Step 1: Launch EC2 and SSH In
 
 - I launched an Amazon Linux 2 EC2 instance (t3.micro).  
 
 - Security group rules:  
-  - 🔑 Port 22 (SSH) – my IP  
-  - 🌐 Port 80 (HTTP) – 0.0.0.0/0  
+  -  Port 22 (SSH) – my IP  
+  -  Port 80 (HTTP) – 0.0.0.0/0  
 
 - To SSH in I used:  
   `ssh -i ~/.ssh/jabz.uk.pem ec2-user@3.8.204.202`  
@@ -23,7 +23,7 @@ Today I set up an NGINX web server on an Amazon EC2 instance and connected it to
 
 ---
 
-## 🟡 Step 2: Install NGINX
+##  Step 2: Install NGINX
 
 - Updated the system: `sudo yum update -y`  
 
@@ -37,7 +37,7 @@ Today I set up an NGINX web server on an Amazon EC2 instance and connected it to
 
 ---
 
-## 🔵 Step 3: Make Sure HTTP is Open
+##  Step 3: Make Sure HTTP is Open
 
 - Double-checked the security group: port 80 (HTTP) was open to 0.0.0.0/0  
 
@@ -47,7 +47,7 @@ Today I set up an NGINX web server on an Amazon EC2 instance and connected it to
 
 ---
 
-## 🟣 Step 4: Set Up Cloudflare DNS
+##  Step 4: Set Up Cloudflare DNS
 
 - Logged into Cloudflare and created an A record for `jabz.uk` pointing to `3.8.204.202`  
 
@@ -59,7 +59,7 @@ Today I set up an NGINX web server on an Amazon EC2 instance and connected it to
 
 ---
 
-## 🟠 Step 5: Check DNS
+##  Step 5: Check DNS
 
 - On my PC ran: `nslookup jabz.uk 1.1.1.1`  
 
@@ -69,7 +69,7 @@ Today I set up an NGINX web server on an Amazon EC2 instance and connected it to
 
 ---
 
-## 🔴 Step 6: Test the Website
+##  Step 6: Test the Website
 
 - Opened `http://3.8.204.202` in the browser → NGINX page showed up ✔️  
 
